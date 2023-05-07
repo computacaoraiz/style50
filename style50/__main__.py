@@ -32,8 +32,8 @@ def main():
     parser = argparse.ArgumentParser(prog="style50")
     parser.add_argument("file", metavar="FILE", nargs="+", help="file or directory to lint")
     parser.add_argument("-o", "--output", action="store", default="character",
-                        choices=["character", "split", "unified", "score", "json", "html"], metavar="MODE",
-                        help="output mode, which can be character (default), split, unified, score, or json")
+                        choices=["character", "split", "unified", "unifiednc", "score", "json", "html"], metavar="MODE",
+                        help="output mode, which can be character (default), split, unified, unifiednc, score, or json")
     parser.add_argument("-v", "--verbose", action="store_true",
                         help="print full tracebacks of errors")
     parser.add_argument("-V", "--version", action="version",
