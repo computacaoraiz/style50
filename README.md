@@ -1,9 +1,9 @@
-# style50
-This is style50, a tool with which code can be checked against the CS50 style guide.
+# stylelab50
+This is stylelab50, a tool with which code can be checked against the CS50 style guide.
 
 ## Installation
 
-    pip install style50
+    pip install stylelab50
 
 In order to style check C, C++, or Java code, a recent version (`>=3.0.1`) of `astyle` must be installed. `astyle` may be downloaded [here](https://sourceforge.net/projects/astyle/files/astyle/astyle%203.0.1/).
 
@@ -13,7 +13,7 @@ Along with most of CS50's command line tools, `style50` supports being run on Wi
 ## Usage
 
 ```
-usage: style50 [-h] [-o MODE] [-v] [-V] [-E] [-i PATTERN] file [file ...]
+usage: stylelab50 [-h] [-o MODE] [-v] [-V] [-E] [-i PATTERN] file [file ...]
 
 positional arguments:
   file                  file or directory to lint
@@ -22,7 +22,7 @@ optional arguments:
   -h, --help            show this help message and exit
   -o MODE, --output MODE
                         output mode, which can be character (default), split,
-                        unified, score, or json
+                        unified, unifiednc, score, or json
   -v, --verbose         print full tracebacks of errors
   -V, --version         show program's version number and exit
   -E, --extensions      print supported file extensions (as JSON list) and
@@ -31,10 +31,10 @@ optional arguments:
                         paths/patterns to be ignored
 ```
 
-`character`, `split`, and `unified` modes output character-based, side-by-side, and unified (respectively) diffs between the inputted file and the correctly styled version. `score` outputs the raw percentage of correct (unchanged) lines, while `json` outputs a json object containing information pertinent to the CS50 IDE plugin (coming soon).
+`character`, `split`, `unified` and `unifiednc` modes output character-based, side-by-side, and unified (respectively) diffs between the inputted file and the correctly styled version. `score` outputs the raw percentage of correct (unchanged) lines, while `json` outputs a json object containing information pertinent to the CS50 IDE plugin (coming soon).
 
 ## Language Support
-`style50` currently supports the following languages:
+`stylelab50` currently supports the following languages:
 
 - C++
 - C
