@@ -78,6 +78,8 @@ class Style50:
                 self.diff = self.split_diff
             elif output == "unified":
                 self.diff = self.unified
+            elif output == "unifiednc":
+                self.diff = self.unifiednc
             else:
                 raise Error("invalid output type")
 
@@ -100,6 +102,8 @@ class Style50:
                 render = renderer.to_json
             elif self.output == "score":
                 render = renderer.to_ansi_score
+            elif self.output == "unifiednc":
+                render = renderer.to_ansinc
             else:
                 render = renderer.to_ansi
             print(render(**results))
@@ -215,6 +219,19 @@ class Style50:
                 continue
             else:
                 yield termcolor.colored(diff, "red" if diff[0] == "-" else "green", attrs=["bold"])
+
+    @staticmethod
+    def unifiednc(old, new):
+        """
+        Returns a generator yielding a unified diff between `old` and `new`.
+        """
+        for diff in difflib.ndiff(old.splitlines(), new.splitlines()):
+            if diff[0] == " ":
+                yield diff
+            elif diff[0] == "?":
+                continue
+            else:
+                yield diff
 
     def html_diff(self, old, new):
         """
